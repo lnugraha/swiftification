@@ -125,7 +125,7 @@ jobs:
             xcodebuild-test-ios.log
             build/reports/tests.html
   
-xcodebuild_test_macos:
+  xcodebuild_test_macos:
     name: xcodebuild test (macOS)
     runs-on: macos-latest
     needs: setup
