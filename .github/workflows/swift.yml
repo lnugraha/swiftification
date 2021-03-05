@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 env:
-  SCHEME_NAME: Swiftification-Test-Package
+  SCHEME_NAME: swiftification
   IOS_SIMULATOR_NAME: iPhone 11 Pro
 
 jobs:
