@@ -32,7 +32,6 @@ jobs:
     # Causes Pipeline Error
     - name: Generates an Xcode project
       run: |
-        echo"CHECKING DIRECTORY"
         pwd
         swift package init
         swift package generate-xcodeproj --xcconfig-overrides Config.xcconfig
