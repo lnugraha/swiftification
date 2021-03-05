@@ -36,8 +36,7 @@ jobs:
         cd ../
         pwd
         swift package init
-        swift package generate-xcodeproj --xcconfig-overrides Config.xcconfig
-      # cd ./swiftification
+        swift package generate-xcodeproj
       # run: set -o pipefail && xcodebuild clean -scheme $SCHEME -destination $DESTINATION -derivedDataPath $DERIVED_DATA_PATH build-for-testing
     
     - name: Show destinations
@@ -119,7 +118,10 @@ jobs:
     - name: Set xcode-select path
       run: sudo xcode-select -s `cat xcode-select.txt`
     - name: Generates an Xcode project
-      run: swift package generate-xcodeproj
+      run: |
+        cd ../
+        pwd
+        swift package generate-xcodeproj
     - name: Xcode test
       run: xcodebuild test -scheme ${{ env.SCHEME_NAME }} -destination 'name=${{ env.IOS_SIMULATOR_NAME }}' | tee xcodebuild-test-ios.log | xcpretty --color --report html && exit ${PIPESTATUS[0]}
     - name: Upload xcode test report
@@ -155,7 +157,10 @@ jobs:
     - name: Set xcode-select path
       run: sudo xcode-select -s `cat xcode-select.txt`
     - name: Generates an Xcode project
-      run: swift package generate-xcodeproj
+      run: |
+        cd ../
+        pwd
+        swift package generate-xcodeproj
     - name: Xcode test (arm64)
       if: false
       run: xcodebuild test -scheme ${{ env.SCHEME_NAME }} -destination 'platform=macOS,arch=arm64' | tee xcodebuild-test-macos_arm64.log | xcpretty --color --report html && exit ${PIPESTATUS[0]}
@@ -177,5 +182,3 @@ jobs:
         path: |
             xcodebuild-test-macos_x86_64.log
             build/reports/tests.html
-
-
