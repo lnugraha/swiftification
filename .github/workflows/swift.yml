@@ -66,9 +66,9 @@ jobs:
       run: swift --version
     - name: Build
       run: |
-      cd ../
-      swift package init
-      swift build -v | tee swift-build-macos_x86_64.log && exit ${PIPESTATUS[0]}
+        cd ../
+        swift package init
+        swift build -v | tee swift-build-macos_x86_64.log && exit ${PIPESTATUS[0]}
     - name: Upload swift build log
       if: always()
       uses: actions/upload-artifact@v2
