@@ -123,6 +123,7 @@ jobs:
       run: |
         cd ../
         pwd
+        swift package init
         swift package generate-xcodeproj
     - name: Xcode test
       run: xcodebuild test -scheme ${{ env.SCHEME_NAME }} -destination 'name=${{ env.IOS_SIMULATOR_NAME }}' | tee xcodebuild-test-ios.log | xcpretty --color --report html && exit ${PIPESTATUS[0]}
@@ -162,6 +163,7 @@ jobs:
       run: |
         cd ../
         pwd
+        swift package init
         swift package generate-xcodeproj
     - name: Xcode test (arm64)
       if: false
