@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 env:
-  SCHEME_NAME: swiftification
+  SCHEME_NAME: swiftification # Check scheme name with: `xcodebuild -list` to confirm your scheme name
   IOS_SIMULATOR_NAME: iPhone 11 Pro
 
 jobs:
