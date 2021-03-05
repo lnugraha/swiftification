@@ -33,6 +33,8 @@ jobs:
     - name: Generates an Xcode project
       run: |
         pwd
+        cd ../
+        pwd
         swift package init
         swift package generate-xcodeproj --xcconfig-overrides Config.xcconfig
       # cd ./swiftification
