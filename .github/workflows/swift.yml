@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
-  SCHEME_NAME: Swiftification-Package
-  IOS_SIMULATOR_NAME: iPhone 11 Pro
-
 jobs:
   setup:
     name: set up workflow
