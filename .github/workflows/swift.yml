@@ -6,14 +6,35 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  SCHEME_NAME: Swiftification-Package
+  IOS_SIMULATOR_NAME: iPhone 11 Pro
+
 jobs:
-  build:
-
-    runs-on: macos-latest
-
+  setup:
+    name: set up workflow
+    runs-on: macos-latest # macos-11.0
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    # - name: Run tests
-    #  run: swift test -v
+    - name: Show Xcode list
+      run: ls -n /Applications | grep 'Xcode'
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
+    - name: Show Xcode version
+      run: xcodebuild -version
+    - name: Export xcode-select path
+      run: xcode-select -p > xcode-select.txt
+    - name: Upload xcode-select path
+      uses: actions/upload-artifact@v2
+      with:
+        name: xcode-select
+        path: xcode-select.txt
+    - name: Generates an Xcode project
+      run: swift package generate-xcodeproj
+    - name: Show destinations
+      run: xcodebuild test -scheme ${{ env.SCHEME_NAME }} -showdestinations
+    - name: Show schemes
+      run: xcodebuild test -list
+    - name: Show xcpretty version
+      run: xcpretty --version
