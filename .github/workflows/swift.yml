@@ -13,7 +13,7 @@ env:
 jobs:
   setup:
     name: set up workflow
-    runs-on: macos-latest # macos-11.0
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
     - name: Show Xcode list
@@ -37,12 +37,9 @@ jobs:
 
     - name: Generates an Xcode project
       run: |
-        pwd
         cd ../
-        pwd
         swift package init
         swift package generate-xcodeproj
-      # run: set -o pipefail && xcodebuild clean -scheme $SCHEME -destination $DESTINATION -derivedDataPath $DERIVED_DATA_PATH build-for-testing
     
     - name: Show destinations
       run: xcodebuild test -scheme ${{ env.SCHEME_NAME }} -showdestinations
@@ -131,7 +128,6 @@ jobs:
     - name: Generates an Xcode project
       run: |
         cd ../
-        pwd
         swift package init
         swift package generate-xcodeproj
     - name: Xcode test
@@ -143,55 +139,4 @@ jobs:
         name: xcodebuild test log and report (iOS)
         path: |
             xcodebuild-test-ios.log
-            build/reports/tests.html
-  
-  xcodebuild_test_macos:
-    name: xcodebuild test (macOS)
-    runs-on: macos-latest
-    needs: setup
-    steps:
-    - uses: actions/checkout@v2
-#     - name: Cache Gems
-#       uses: actions/cache@v2
-#       with:
-#         path: vendor/bundle
-#         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-#         restore-keys: |
-#           ${{ runner.os }}-gems-
-#     - name: Install Bundled Gems
-#       run: |
-#         bundle config path vendor/bundle
-#         bundle install --jobs 4 --retry 3
-    - name: Download xcode-select path
-      uses: actions/download-artifact@v2
-      with:
-        name: xcode-select
-    - name: Set xcode-select path
-      run: sudo xcode-select -s `cat xcode-select.txt`
-    - name: Generates an Xcode project
-      run: |
-        cd ../
-        pwd
-        swift package init
-        swift package generate-xcodeproj
-    - name: Xcode test (arm64)
-      if: false
-      run: xcodebuild test -scheme ${{ env.SCHEME_NAME }} -destination 'platform=macOS,arch=arm64' | tee xcodebuild-test-macos_arm64.log | xcpretty --color --report html && exit ${PIPESTATUS[0]}
-    - name: Upload xcode test report
-      if: false # if: always()
-      uses: actions/upload-artifact@v2
-      with:
-        name: xcodebuild test log and report (macOS, arm64)
-        path: |
-            xcodebuild-test-macos_arm64.log
-            build/reports/tests.html
-    - name: Xcode test (x86_64)
-      run: xcodebuild test -scheme ${{ env.SCHEME_NAME }} -destination 'platform=macOS,arch=x86_64' | tee xcodebuild-test-macos_x86_64.log | xcpretty --color --report html && exit ${PIPESTATUS[0]}
-    - name: Upload xcode test report
-      if: always()
-      uses: actions/upload-artifact@v2
-      with:
-        name: xcodebuild test log and report (macOS, x86_64)
-        path: |
-            xcodebuild-test-macos_x86_64.log
             build/reports/tests.html
