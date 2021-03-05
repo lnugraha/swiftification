@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  SCHEME_NAME: Swiftification-Test-Package
+  IOS_SIMULATOR_NAME: iPhone 11 Pro
+
 jobs:
   setup:
     name: set up workflow
@@ -31,7 +35,6 @@ jobs:
         name: xcode-select
         path: xcode-select.txt
 
-    # Causes Pipeline Error
     - name: Generates an Xcode project
       run: |
         pwd
@@ -41,8 +44,8 @@ jobs:
         swift package generate-xcodeproj
       # run: set -o pipefail && xcodebuild clean -scheme $SCHEME -destination $DESTINATION -derivedDataPath $DERIVED_DATA_PATH build-for-testing
     
-    #- name: Show destinations
-    #  run: xcodebuild test -scheme ${{ env.SCHEME_NAME }} -showdestinations
+    - name: Show destinations
+      run: xcodebuild test -scheme ${{ env.SCHEME_NAME }} -showdestinations
     
     - name: Show schemes
       run: xcodebuild test -list
