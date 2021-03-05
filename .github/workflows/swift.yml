@@ -91,7 +91,10 @@ jobs:
     - name: Swift version
       run: swift --version
     - name: Run tests
-      run: swift test -v | tee swift-test-macos_x86_64.log && exit ${PIPESTATUS[0]}
+      run: |
+        cd ../
+        swift package init
+        swift test -v | tee swift-test-macos_x86_64.log && exit ${PIPESTATUS[0]}
     - name: Upload swift test log
       if: always()
       uses: actions/upload-artifact@v2
