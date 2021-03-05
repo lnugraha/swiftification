@@ -34,11 +34,11 @@ jobs:
       # run: swift package generate-xcodeproj
       # run: set -o pipefail && xcodebuild clean -scheme $SCHEME -destination $DESTINATION -derivedDataPath $DERIVED_DATA_PATH build-for-testing
     
-    - name: Show destinations
-      run: xcodebuild test -scheme ${{ env.SCHEME_NAME }} -showdestinations
+    # - name: Show destinations
+    #  run: xcodebuild test -scheme ${{ env.SCHEME_NAME }} -showdestinations
     
-    - name: Show schemes
-      run: xcodebuild test -list
+    # - name: Show schemes
+    #  run: xcodebuild test -list
     
     - name: Show xcpretty version
       run: xcpretty --version
