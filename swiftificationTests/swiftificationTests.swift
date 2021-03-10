@@ -24,8 +24,21 @@ class swiftificationTests: XCTestCase {
         let result = TestMathFunction()
         let checkResult = result.addTwoNumbers(20, 40)
         XCTAssertEqual(checkResult, 60)
+        
+        let testCalling = ObjectiveCModules()
+        testCalling.setNumber(20)
+        print( testCalling.getNumber() )
+        XCTAssertEqual(testCalling.getNumber(), 20)
+        
     }
 
+    func testVariousShapes() throws{
+        let testShapes = VariousShapes(20)
+        XCTAssertEqual(testShapes.getSide(), 20)
+        XCTAssertEqual(testShapes.getArea(), 400)
+        XCTAssertEqual(testShapes.getPerimeter(), 80)
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

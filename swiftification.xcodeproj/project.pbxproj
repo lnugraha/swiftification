@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1C171E0C25F5D09A00D004D9 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C171E0B25F5D09A00D004D9 /* TestViewController.swift */; };
 		1C171E2325F5D46100D004D9 /* TestViewController_UnitTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C171E2225F5D46100D004D9 /* TestViewController_UnitTestCases.swift */; };
+		1C8AEFAC25F8664C0028934A /* ObjectiveCModules.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AEFAB25F8664C0028934A /* ObjectiveCModules.m */; };
+		1C8AEFAF25F86D590028934A /* VariousShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8AEFAE25F86D590028934A /* VariousShapes.m */; };
 		1C8B9E1C25F0D46C0054BE4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8B9E1B25F0D46C0054BE4E /* AppDelegate.swift */; };
 		1C8B9E1E25F0D46C0054BE4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8B9E1D25F0D46C0054BE4E /* SceneDelegate.swift */; };
 		1C8B9E2025F0D46C0054BE4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8B9E1F25F0D46C0054BE4E /* ContentView.swift */; };
@@ -39,6 +41,11 @@
 /* Begin PBXFileReference section */
 		1C171E0B25F5D09A00D004D9 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		1C171E2225F5D46100D004D9 /* TestViewController_UnitTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController_UnitTestCases.swift; sourceTree = "<group>"; };
+		1C8AEFA925F8664B0028934A /* swiftification-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swiftification-Bridging-Header.h"; sourceTree = "<group>"; };
+		1C8AEFAA25F8664C0028934A /* ObjectiveCModules.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectiveCModules.h; sourceTree = "<group>"; };
+		1C8AEFAB25F8664C0028934A /* ObjectiveCModules.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectiveCModules.m; sourceTree = "<group>"; };
+		1C8AEFAD25F86D590028934A /* VariousShapes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VariousShapes.h; sourceTree = "<group>"; };
+		1C8AEFAE25F86D590028934A /* VariousShapes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VariousShapes.m; sourceTree = "<group>"; };
 		1C8B9E1825F0D46C0054BE4E /* swiftification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8B9E1B25F0D46C0054BE4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C8B9E1D25F0D46C0054BE4E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,10 +114,15 @@
 				1C8B9E1D25F0D46C0054BE4E /* SceneDelegate.swift */,
 				1C8B9E1F25F0D46C0054BE4E /* ContentView.swift */,
 				1C171E0B25F5D09A00D004D9 /* TestViewController.swift */,
+				1C8AEFAA25F8664C0028934A /* ObjectiveCModules.h */,
+				1C8AEFAB25F8664C0028934A /* ObjectiveCModules.m */,
+				1C8AEFAD25F86D590028934A /* VariousShapes.h */,
+				1C8AEFAE25F86D590028934A /* VariousShapes.m */,
 				1C8B9E2125F0D46D0054BE4E /* Assets.xcassets */,
 				1C8B9E2625F0D46D0054BE4E /* LaunchScreen.storyboard */,
 				1C8B9E2925F0D46D0054BE4E /* Info.plist */,
 				1C8B9E2325F0D46D0054BE4E /* Preview Content */,
+				1C8AEFA925F8664B0028934A /* swiftification-Bridging-Header.h */,
 			);
 			path = swiftification;
 			sourceTree = "<group>";
@@ -209,6 +221,7 @@
 				TargetAttributes = {
 					1C8B9E1725F0D46C0054BE4E = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1250;
 					};
 					1C8B9E2D25F0D46D0054BE4E = {
 						CreatedOnToolsVersion = 12.4;
@@ -273,8 +286,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C8B9E1C25F0D46C0054BE4E /* AppDelegate.swift in Sources */,
+				1C8AEFAF25F86D590028934A /* VariousShapes.m in Sources */,
 				1C8B9E1E25F0D46C0054BE4E /* SceneDelegate.swift in Sources */,
 				1C171E0C25F5D09A00D004D9 /* TestViewController.swift in Sources */,
+				1C8AEFAC25F8664C0028934A /* ObjectiveCModules.m in Sources */,
 				1C8B9E2025F0D46C0054BE4E /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"swiftification/Preview Content\"";
 				DEVELOPMENT_TEAM = 3V8747A5S9;
@@ -455,6 +471,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lnugraha.swiftification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swiftification/swiftification-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -465,6 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"swiftification/Preview Content\"";
 				DEVELOPMENT_TEAM = 3V8747A5S9;
@@ -476,6 +495,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lnugraha.swiftification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swiftification/swiftification-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
