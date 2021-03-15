@@ -1,10 +1,12 @@
-name: Swift
+name: Automated Continous Integration Pipeline with Swift 
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  schedule:
+    - cron: "0 */4 * * *"
 
 env:
   SCHEME_NAME: swiftification # Check scheme name with: `xcodebuild -list` to confirm your scheme name
