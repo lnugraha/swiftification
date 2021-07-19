@@ -1,6 +1,6 @@
 ## Moving Away from Storyboards ##
 1. Creating a view controller using Swift
-  - [ ] Using lazy var
+  - [ ] Using **lazy var**
   ```swift
   lazy var loginContentView: UIView = {
     let view = UIView()
@@ -8,7 +8,7 @@
     return view
   }()  
   ```
-  - [ ] Using private let
+  - [ ] Using **private let**
   ```swift
   private let loginContentView: UIView = {
     let view = UIView()
