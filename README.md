@@ -17,11 +17,20 @@
   }()
   ```
 2. Transitioning from one view controller to another view controller programmatically
+- [ ] Without storyboard at all
 ```swift
 dismiss(animated: true, completion: nil)
 let nextVC = NextViewController()
 nextVC.modalPresentationStyle = .fullScreen
 self.present(nextVC, animated: true, completion: nil)
+```
+
+- [ ] With storyboard included
+```swift
+guard let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainVC else {
+  fatalError("DEBUG: Fatal error unable to instantiate view controller \(#function) \(#line)")
+}
+present(mainVC, animated: false, completion: nil)
 ```
 
 ## Handling Data Pass without using Segue ##
