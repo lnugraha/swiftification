@@ -1,16 +1,16 @@
 ## Moving Away from Storyboards ##
 1. Creating a view controller using Swift
-  - [ ] Using **lazy var**
+  - [ ] Using **lazy var** (public or private depends on your choice)
   ```swift
-  lazy var loginContentView: UIView = {
+  private lazy var loginContentView: UIView = {
     let view = UIView()
     view.backgroundColor = .gray
     return view
   }()  
   ```
-  - [ ] Using **private let**
+  - [ ] Using **private static let**
   ```swift
-  private let loginContentView: UIView = {
+  private static let loginContentView: UIView = {
     let view = UIView()
     view.backgroundColor = .gray
     return view
@@ -40,4 +40,31 @@ present(mainVC, animated: false, completion: nil)
 ## Designing constraint and layout ##
 - [ ] Using NSLayoutConstraint
 
-## Managing Program Scalability using Modal View View Modal (MVVM) Design Pattern ##
+
+## UI Elements Design using SwiftUI ##
+1. Creating a pill-shaped button
+```swift
+Text("Press here!")
+  .frame(width: 120, height: 50, alignment: .center)
+  .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
+  .cornerRadius(10)
+  .overlay(
+    RoundedRectangle(cornerRadius: 10)
+      .stroke(lineWidth: 2.0)
+  )
+```
+
+2. Creating a textfield
+```swift
+TextField("", text: $valueBinding)
+  .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+  .textFieldStyle(.roundedBorder)
+  .font(.system(size: 14))
+  .autocapitalization(.none)
+  .disableAutocorrection(true)
+  .overlay(
+    RoundedRectangle(cornerRadius: 4)
+      .stroke(Color(UIColor.separator), lineWidth: 2)
+      .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+  )
+```
