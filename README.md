@@ -68,3 +68,10 @@ TextField("", text: $valueBinding)
       .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
   )
 ```
+
+## Android Studio ##
+
+### Printing in console ###
+```java
+System.out.println("DEBUG - ${Exception().stackTrace[0].lineNumber}")
+```
