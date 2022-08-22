@@ -69,6 +69,33 @@ TextField("", text: $valueBinding)
   )
 ```
 
+## Adding and Resizing Images in UIButton
+```swift
+let button = UIButton()
+let image = UIImage(systemName: "bag.badge.plus")
+button.setImage(image, for: .normal)
+button.contentHorizontalAlignment = .fill
+button.contentVerticalAlignment = .fill
+button.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 10, right: 10)
+```
+
+```
+let imageSize:CGSize = CGSize(width: 20, height: 20)
+
+let button:UIButton = UIButton(type: UIButton.ButtonType.custom)
+button.frame = CGRect(x: 200, y: 200, width: 60, height: 60)
+button.backgroundColor = UIColor.yellow
+button.setImage(UIImage(named: "chat.png"), for: UIControl.State.normal)
+
+// The below line will give you what you want
+button.imageEdgeInsets = UIEdgeInsets(
+  top: (button.frame.size.height - imageSize.height) / 2,
+  left: (button.frame.size.width - imageSize.width) / 2,
+  bottom: (button.frame.size.height - imageSize.height) / 2,
+  right: (button.frame.size.width - imageSize.width) / 2
+)
+```
+
 ## Android Studio ##
 
 ### Printing in console ###
